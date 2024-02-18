@@ -31,7 +31,7 @@ body {
     display: grid;
     align-items: center;
     grid-template-rows: 1fr 1fr 8fr;
-    gap: 1px; /* Adjust the gap between elements */
+    gap: 5px; /* Adjust the gap between elements */
     max-width: 800px; /*Set a maximum width for the container if needed*/
     transform: translateY(-15%);
     margin-top: 17%;
