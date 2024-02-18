@@ -7,11 +7,28 @@
     <h1>Welcome to the Analyze Page</h1>
     <p>This is a placeholder text. Replace it with your own content.</p>
 
+    <!-- prediction 값을 출력할 요소를 추가합니다. -->
+    <div id="prediction-output"></div>
+
     <script>
         async function predict() {
             const predictionString = localStorage.getItem('prediction');
             const prediction = JSON.parse(predictionString);
+
+            // prediction 값을 화면에 출력합니다.
+            const outputElement = document.getElementById('prediction-output');
+            outputElement.innerHTML = ''; // 이전 내용을 지웁니다.
+
+            prediction.forEach(item => {
+                const probability = item.probability.toFixed(2); // 소수점 둘째 자리까지만 출력
+                const text = `${item.className}: ${item.probability}`;
+                const p = document.createElement('p');
+                p.textContent = text;
+                outputElement.appendChild(p);
+            });
         }
+
+        window.onload = predict;
     </script>
 </body>
 </html>
