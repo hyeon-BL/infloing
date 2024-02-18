@@ -30,9 +30,19 @@ body {
 .search-container {
     display: grid;
     align-items: center;
-    gap: 10px; /* Adjust the gap between elements */
-    max-width: 800px; /* Set a maximum width for the container if needed */
+    grid-template-rows: 1fr 1fr 8fr;
+    gap: 1px; /* Adjust the gap between elements */
+    max-width: 800px; /*Set a maximum width for the container if needed*/
     transform: translateY(-15%);
+    margin-top: 17%;
+}
+
+.search-container > .container1{
+    grid-row: 1;
+}
+
+.search-container > .container2{
+    grid-row: 2;
 }
 
 input {
