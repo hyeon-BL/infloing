@@ -10,6 +10,15 @@ body {
     background-position: center;
     background-size: 110%;
 }
+.search-container {
+    display: grid;
+    align-items: center;
+    grid-template-rows: 1fr 1fr 8fr;
+    gap: 5px; /* Adjust the gap between elements */
+    max-width: 800px; /*Set a maximum width for the container if needed*/
+    transform: translateY(-15%);
+    margin-top: 17%;
+}
 
 @media only screen and (max-width: 1300px) {
     body {
@@ -36,15 +45,7 @@ body {
 }
 
 
-.search-container {
-    display: grid;
-    align-items: center;
-    grid-template-rows: 1fr 1fr 8fr;
-    gap: 5px; /* Adjust the gap between elements */
-    max-width: 800px; /*Set a maximum width for the container if needed*/
-    transform: translateY(-15%);
-    margin-top: 17%;
-}
+
 
 .search-container > .container1{
     grid-row: 1;
