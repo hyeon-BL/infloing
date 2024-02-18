@@ -31,7 +31,7 @@ body {
     max-width: 800px;
     margin: 0 auto; /* Center the grid horizontally */
     place-items: center; /* Center the items both horizontally and vertically */
-    margin-top: 25%;
+    margin-top: 15%;
 }
 
 input[type="email"] {
