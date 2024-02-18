@@ -1,30 +1,36 @@
-function searchInfluencer() {
-    // Get the influencer username from the input field
-    var influencerUsername1 = document.getElementById('influencerInput1').value;
-    var influencerUsername2 = document.getElementById('influencerInput2').value;
+document.getElementById('submitButton').addEventListener('click', function() {
+    // 폼 데이터 가져오기
+    var formData1 = new FormData(document.getElementById('form1'));
+    var formData2 = new FormData(document.getElementById('form2'));
 
-    // Check if the input is not empty
-    if (influencerUsername1.trim() !== '' && influencerUsername2.trim() !== ''){
-        // Create the URL for the new page, for example: analyze.html?q=username
-        var url = 'analyze.html?q=' + encodeURIComponent(influencerUsername2);
-
-        // Redirect to the new page
-        window.location.href = url;
-    } else {
-        // Show an alert or handle the case where the input is empty
+    // 두 폼의 데이터 중 하나라도 null 값이 있는지 확인
+    if (hasNullValues(formData1) || hasNullValues(formData2)) {
         alert('계정이 비어있습니다. \n 본인의 계정과 워너비 인플루언서의 계정 모두 입력해주세요.');
+        return;
     }
+
+    var xhr1 = new XMLHttpRequest();
+    xhr1.open('GET', 'my_save_influencer.php?' + new URLSearchParams(formData1).toString(), true);
+    xhr1.send();
+    var xhr2 = new XMLHttpRequest();
+    xhr2.open('GET', 'target_save_influencer.php?' + new URLSearchParams(formData2).toString(), true);
+    xhr2.send();
+
+    xhr2.onreadystatechange = function() {
+        if (xhr2.readyState == 4 && xhr2.status == 200) {
+            // analyze.html로 리다이렉트
+            window.location.href = 'analyze.html';
+        }
+    };
+    
+    xhr2.send();
+});
+
+function hasNullValues(formData) {
+    for (var pair of formData.entries()) {
+        if (pair[1] === null || pair[1] === '') {
+            return true;
+        }
+    }
+    return false;
 }
-
-
-// function checkTouchable() {
-//     document.body.dataset.touchable = !!window.ontouchstart;
-// }
-
-// checkTouchable();
-
-// if (document.body.dataset.touchable === "true") {
-//     console.log("Touch events are supported on this device.");
-// } else {
-//     console.log("Touch events are not supported on this device.");  
-// }

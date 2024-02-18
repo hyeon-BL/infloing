@@ -1,20 +1,30 @@
 <?php
-$file = 'target_influencer_list.txt';
+$username = $_POST['username'];
+$previousIp = isset($_COOKIE['user_ip']) ? $_COOKIE['user_ip'] : null;
+$currentIp = $_SERVER['REMOTE_ADDR'];
 
-if (isset($_POST['influencerInput'])) {
-    $influencerInput = $_POST['influencerInput'];
+if ($previousIp === $currentIp) {
+    /*이전에 같은 사용자가 보낸 계정*/
 
-    if (filesize($file) == 0) {
-        file_put_contents($file, $influencerInput);
-    } else {
-        $file2 = file_get_contents($file) . "\n" . $influencerInput;
-        file_put_contents($file, $file2);
-    }
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    $formData2 = $_GET['influencerInput2'] ?? '';
+    file_put_contents('target_save_influencer.txt', $formData2 . "->" . $currentIp . PHP_EOL, FILE_APPEND);
 
-    header('Location: analyze.html');
-    exit();
+    echo 'Data saved successfully';
 } else {
-    // influencerInput이 설정되지 않은 경우 처리
-    echo '유효하지 않은 입력입니다.';
+    http_response_code(400);
+    echo 'Bad Request';
+}
+} else{
+    setcookie('user_ip', $currentIp, time() + (86400*30), '/');
+    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        $formData2 = $_GET['influencerInput2'] ?? '';
+        file_put_contents('target_save_influencer.txt', $formData2 . "->" . $currentIp . PHP_EOL, FILE_APPEND);
+    
+        echo 'Data saved successfully';
+    } else {
+        http_response_code(400);
+        echo 'Bad Request';
+    }
 }
 ?>

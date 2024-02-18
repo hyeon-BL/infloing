@@ -9,18 +9,18 @@
 <body>
     <div class="search-container">
         <div class="container1">
-            <form action="target_save_influencer.php" method="post" onsubmit="return saveInfluencer()">
-                    <input type="text" name="influencerInput1" id="influencerInput" placeholder="자신의 계정을 입력해보세요">
-                    <button type="submit">✔️</button>
+            <form id="form1">
+                    <input type="text" name="influencerInput1" id="influencerInput1" placeholder="자신의 계정을 입력해보세요">
+               
             </form>
         </div>
         <div class="container2">
-            <form action="my_save_influencer.php" method="post" onsubmit="return saveInfluencer()">
-                    <input type="text" name="influencerInput2" id="influencerInput" placeholder="워너비 계정을 입력해보세요">
-                    <button type="submit">✔️</button>
+            <form id="form2">
+                    <input type="text" name="influencerInput2" id="influencerInput2" placeholder="워너비 계정을 입력해보세요">                   
             </form>
-    </div>
-
-    <script src="script.js"></script>
+	    <button id="submitButton">✔️</button>
+	    </div>
+	</div>
+	<script src="script.js"></script>
 </body>
 </html>
