@@ -6,7 +6,7 @@
 <body>
     <h1>Welcome to the Analyze Page</h1>
     <p>This is a placeholder text. Replace it with your own content.</p>
-
+    <p class="result-message"></p>
     <!-- prediction 값을 출력할 요소를 추가합니다. -->
     <div id="prediction-output"></div>
 
@@ -19,15 +19,42 @@
             const outputElement = document.getElementById('prediction-output');
             outputElement.innerHTML = ''; // 이전 내용을 지웁니다.
 
+            prediction.sort((a, b) => b.probability - a.probability);
+
+            var resultMessage;
+            console.log(prediction[0].className);
+            switch (prediction[0].className) {
+                case 'beauty':
+                    resultMessage = '뷰티 인플루언서';
+                    outputElement.innerHTML = 'A';
+                case 'book':
+                    resultMessage = '자기계발 인플루언서';
+                    outputElement.innerHTML = 'B';
+                case 'tech':
+                    resultMessage = '테크 인플루언서';
+                    outputElement.innerHTML = 'C';
+                case 'food':
+                    resultMessage = '음식 인플루언서';
+                    outputElement.innerHTML = 'D';
+                case 'interior':
+                    resultMessage = '인테리어 인플루언서';
+                    outputElement.innerHTML = 'E';
+                case 'journey':
+                    resultMessage = '여행 인플루언서';
+                    outputElement.innerHTML = 'F';
+                default:
+                    outputElement.innerHTML = 'Unknown';
+            }
+            $('.result-message').html(resultMessage);
+            
             prediction.forEach(item => {
                 const probability = item.probability.toFixed(2); // 소수점 둘째 자리까지만 출력
-                const text = `${item.className}: ${item.probability}`;
+                const text = `${item.className}: ${probability}`;
                 const p = document.createElement('p');
                 p.textContent = text;
                 outputElement.appendChild(p);
             });
         }
-
         window.onload = predict;
     </script>
 </body>
