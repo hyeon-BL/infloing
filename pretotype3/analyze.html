@@ -23,25 +23,46 @@
             prediction.sort((a, b) => b.probability - a.probability);
 
             var resultMessage;
+            var img = document.createElement('img');
+            var resultMessageElement = document.querySelector('.result-message');
+
             console.log(prediction[0].className);
             switch (prediction[0].className) {
                 case "beauty":
                     resultMessage = "뷰티 인플루언서";
+                    img.src = 'img/cosmetics.jpg';
+                    img.alt = 'Cosmetics';
+                    document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "book":
                     resultMessage = "자기계발 인플루언서";
+                    img.src = 'img/book.jpg';
+                    img.alt = 'book';
+                    document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "tech":
                     resultMessage = "테크 인플루언서";
+                    img.src = 'img/tech.jpg';
+                    img.alt = 'tech';
+                    document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "food":
                     resultMessage = "음식 인플루언서";
+                    img.src = 'img/foods.jpg';
+                    img.alt = 'food';
+                    document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "interior":
                     resultMessage = "인테리어 인플루언서";
+                    img.src = 'img/interior.jpg';
+                    img.alt = 'interior';
+                    document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "journey":
                     resultMessage = "여행 인플루언서";
+                    img.src = 'img/journey.jpg';
+                    img.alt = 'journey';
+                    document.body.insertBefore(img, resultMessageElement);
                     break;
                 default:
                     resultMessage = "Unknown";
