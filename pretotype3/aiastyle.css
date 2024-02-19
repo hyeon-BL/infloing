@@ -1,0 +1,49 @@
+body {
+    font-family: 'Do Hyeon', sans-serif;
+    display: grid; /* 수정된 부분 */
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 8fr;
+    gap: 5px;
+    height: 100vh;
+    background-color: #ffffff;
+    color: #35465d;
+    text-align: center; 
+}
+
+.main {
+    text-align: center;
+    grid-row: 1;
+}
+
+.result-image {
+    grid-row: 2;
+    width: 20%;
+    margin: 5px auto 0;
+}
+
+.result-message {
+    grid-row: 3;
+    font-size: 25px;
+    margin: 5px auto 0;
+}
+#predition-output {
+    grid-row: 4;
+    margin: 5px auto 0;
+}
+
+.btn {
+    grid-row: 5;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid aliceblue;
+    border-radius: 15px;
+    margin: 5px;
+    color: #fff;
+    background-color: rgb(101, 113, 225);
+    padding: 10px 20px;
+}
+
+
+.footer {
+    background-color: initial;
+    color: initial;
+}

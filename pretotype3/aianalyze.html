@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Analyze Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Yeon+Sung&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="aiastyle.css">
+</head>
+<body>
+    <div class="main">
+        <h1>Welcome to the Analyze Page</h1>
+        <p>This is a placeholder text. Replace it with your own content.</p>
+    </div>
+    <p class="result-message"></p>
+    <!-- prediction 값을 출력할 요소를 추가합니다. -->
+    <div id="prediction-output"></div>
+
+    <a href="analyze.html">
+        <button class="btn">>> 자세한 분석 보기 &lt;&lt;</button>
+    </a>
+    
+    
+    <footer class="footer pt-5 container d-flex justify-content-center">
+        <div>
+            <p>&copy; infloing </p>
+
+        </div>
+    </footer>
+
+
+    <script>
+        async function predict() {
+            const predictionString = localStorage.getItem('prediction');
+            const prediction = JSON.parse(predictionString);
+
+            // prediction 값을 화면에 출력합니다.
+            const outputElement = document.getElementById('prediction-output');
+            outputElement.innerHTML = ''; // 이전 내용을 지웁니다.
+
+            prediction.sort((a, b) => b.probability - a.probability);
+
+            var resultMessage;
+            var img = document.createElement('img');
+            img.className = 'result-image';
+            var resultMessageElement = document.querySelector('.result-message');
+
+            console.log(prediction[0].className);
+            switch (prediction[0].className) {
+                case "beauty":
+                    resultMessage = "뷰티 인플루언서";
+                    img.src = 'img/cosmetics.jpg';
+                    img.alt = 'Cosmetics';
+                    document.body.insertBefore(img, resultMessageElement);
+                    break;
+                case "book":
+                    resultMessage = "자기계발 인플루언서";
+                    img.src = 'img/book.jpg';
+                    img.alt = 'book';
+                    document.body.insertBefore(img, resultMessageElement);
+                    break;
+                case "tech":
+                    resultMessage = "테크 인플루언서";
+                    img.src = 'img/tech.jpg';
+                    img.alt = 'tech';
+                    document.body.insertBefore(img, resultMessageElement);
+                    break;
+                case "food":
+                    resultMessage = "음식 인플루언서";
+                    img.src = 'img/foods.jpg';
+                    img.alt = 'food';
+                    document.body.insertBefore(img, resultMessageElement);
+                    break;
+                case "interior":
+                    resultMessage = "인테리어 인플루언서";
+                    img.src = 'img/interior.jpg';
+                    img.alt = 'interior';
+                    document.body.insertBefore(img, resultMessageElement);
+                    break;
+                case "journey":
+                    resultMessage = "여행 인플루언서<br>(@1amny, @sohee.e)";
+                    img.src = 'img/journey.jpg';
+                    img.alt = 'journey';
+                    document.body.insertBefore(img, resultMessageElement);
+                    break;
+                default:
+                    resultMessage = "Unknown";
+            }
+            $('.result-message').html(resultMessage);
+            
+
+            const item = prediction[0]; // 첫 번째 예측 결과를 가져옵니다.
+            const probability = item.probability.toFixed(2); // 소수점 둘째 자리까지만 출력
+            const text = `${item.className}: ${probability}`;
+            const p = document.createElement('p');
+            p.textContent = text;
+            outputElement.appendChild(p);
+
+            // prediction.forEach(item => {
+            //     const probability = item.probability.toFixed(2); // 소수점 둘째 자리까지만 출력
+            //     const text = `${item.className}: ${probability}`;
+            //     const p = document.createElement('p');
+            //     p.textContent = text;
+            //     outputElement.appendChild(p);
+            // });
+        }
+        window.onload = predict;
+
+
+    </script>
+</body>
+</html>
