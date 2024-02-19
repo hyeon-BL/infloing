@@ -1,16 +1,20 @@
 body {
   font-family: 'Do Hyeon', sans-serif;
-  background-color: #ffffff;
+  background-image: url('background.png');
+  backround-size: cover;
+  background-position: center;
   box-sizing: border-box;
-  color: #35465d;
+  color: #35465d; 
 }
 .file-upload {
     padding: 15% 3%;
     margin: 0 auto;
     border-radius: 10px;
-    border: solid 1.5px #f6f7fa;
-    background-color: #f6f7fa;
+    /* border: solid 1.5px #f6f7fa; */
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.25);
 }
+
 .file-upload-btn {
   width: 100%;
   margin: 0;
@@ -25,6 +29,22 @@ body {
   text-transform: uppercase;
   font-weight: 700;
 }
+
+/* .file-upload-btn {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  background: #1FB264;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #15824B;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+} */
+
 
 .file-upload-btn:hover {
   background: #1AA059;
