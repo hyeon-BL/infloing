@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>My Analyze Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <h1>Welcome to the Analyze Page</h1>
@@ -24,26 +25,26 @@
             var resultMessage;
             console.log(prediction[0].className);
             switch (prediction[0].className) {
-                case 'beauty':
-                    resultMessage = '뷰티 인플루언서';
-                    outputElement.innerHTML = 'A';
-                case 'book':
-                    resultMessage = '자기계발 인플루언서';
-                    outputElement.innerHTML = 'B';
-                case 'tech':
-                    resultMessage = '테크 인플루언서';
-                    outputElement.innerHTML = 'C';
-                case 'food':
-                    resultMessage = '음식 인플루언서';
-                    outputElement.innerHTML = 'D';
-                case 'interior':
-                    resultMessage = '인테리어 인플루언서';
-                    outputElement.innerHTML = 'E';
-                case 'journey':
-                    resultMessage = '여행 인플루언서';
-                    outputElement.innerHTML = 'F';
+                case "beauty":
+                    resultMessage = "뷰티 인플루언서";
+                    break;
+                case "book":
+                    resultMessage = "자기계발 인플루언서";
+                    break;
+                case "tech":
+                    resultMessage = "테크 인플루언서";
+                    break;
+                case "food":
+                    resultMessage = "음식 인플루언서";
+                    break;
+                case "interior":
+                    resultMessage = "인테리어 인플루언서";
+                    break;
+                case "journey":
+                    resultMessage = "여행 인플루언서";
+                    break;
                 default:
-                    outputElement.innerHTML = 'Unknown';
+                    resultMessage = "Unknown";
             }
             $('.result-message').html(resultMessage);
             
