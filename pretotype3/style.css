@@ -30,6 +30,10 @@ body {
   font-weight: 700;
 }
 
+.drag-text {
+  color: #fdd7ff;
+}
+
 /* .file-upload-btn {
   width: 100%;
   margin: 0;
@@ -163,13 +167,13 @@ body {
 .title {
   line-height: 1.67;
   text-align: center;
-  color: #35465d;
+  color: #fdd7ff;
 }
 
 .subtitle {
   line-height: 1.53;
   text-align: center;
-  color: #35465d;
+  color: #fdd7ff;
 }
 
 /* On screens that are 600px or less, set the background color to olive */

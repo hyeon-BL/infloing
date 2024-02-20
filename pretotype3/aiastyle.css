@@ -4,8 +4,10 @@ body {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 3fr;
     gap: 5px;
     height: 100vh;
-    background-color: #ffffff;
-    color: #35465d;
+    background-image: url('mobile_bg.png');
+    background-size: cover;
+    background-position: center;
+    color: #fdd7ff;
     text-align: center; 
 }
 
