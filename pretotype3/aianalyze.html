@@ -9,6 +9,7 @@
 <body>
     <div class="main">
         <h1>나의 워너비 계정은...</h1>
+        <h3>예측 결과를 살펴보고, 분석 보기 버튼을 클릭하여<br>인플로잉 AI가 제공하는 인사이트를 얻어보세요!</h4>
     </div>
     <p class="result-message"></p>
     <!-- prediction 값을 출력할 요소를 추가합니다. -->
@@ -16,8 +17,7 @@
 
     <a href="analyze.html">
         <button class="btn">>> 자세한 분석 보기 &lt;&lt;</button>
-    </a>
-    
+    </a>    
     
     <footer class="footer pt-5 container d-flex justify-content-center">
         <div>
@@ -49,42 +49,42 @@
             switch (prediction[0].className) {
                 case "beauty":
                     resultMessage = "뷰티 인플루언서<br>@jinpic.kr, @hayoonson";
-                    text = `${probability*100} ${'%'}`;
+                    text = `축하드립니다!<br>당신은 <strong><u>${probability*100}%</u></strong>의 확률로<br><b>뷰티 인플루언서</b>입니다.<br>아래 버튼을 눌러 인플루언서로부터 인사이트를 발견해보세요.<br>↓↓↓`;
                     img.src = 'img/cosmetics.jpg';
                     img.alt = 'Cosmetics';
                     document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "book":
                     resultMessage = "자기계발 인플루언서<br>@g_rum_edo, @boooks__pick";
-                    text = `${'자기계발 인플루언서일 확률'}: ${probability*100} ${'%'}`;
+                    text = `축하드립니다!<br>당신은 <strong><u>${probability*100}%</u></strong>의 확률로<br>자기계발 인플루언서</b>입니다.<br>아래 버튼을 눌러 인플루언서로부터 인사이트를 발견해보세요.<br>↓↓↓`;
                     img.src = 'img/book.jpg';
                     img.alt = 'book';
                     document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "tech":
                     resultMessage = "테크 인플루언서<br>@the_edit.co.kr, @geekble";
-                    text = `${'테크 인플루언서일 확률'}: ${probability*100} ${'%'}`;
+                    text = `축하드립니다!<br>당신은 <strong><u>${probability*100}%</u></strong>의 확률로<br><b>테크 인플루언서</b>입니다.<br>아래 버튼을 눌러 인플루언서로부터 인사이트를 발견해보세요.<br>↓↓↓`;
                     img.src = 'img/tech.jpg';
                     img.alt = 'tech';
                     document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "food":
                     resultMessage = "음식 인플루언서<br>@ggam_food, @ming_foodie";
-                    text = `${'음식 인플루언서일 확률'}: ${probability*100} ${'%'}`;
+                    text = `축하드립니다!<br>당신은 <strong><u>${probability*100}%</u></strong>의 확률로<br><b>음식 인플루언서</b>입니다.<br>아래 버튼을 눌러 인플루언서로부터 인사이트를 발견해보세요.<br>↓↓↓`;
                     img.src = 'img/foods.jpg';
                     img.alt = 'food';
                     document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "interior":
                     resultMessage = "인테리어 인플루언서<br>@ggulhouse, @gamsung.home";
-                    text = `${'인테리어 인플루언서일 확률'}: ${probability*100} ${'%'}`;
+                    text = `축하드립니다!<br>당신은 <strong><u>${probability*100}%</u></strong>의 확률로<br><b>인테리어 인플루언서</b>입니다.<br>아래 버튼을 눌러 인플루언서로부터 인사이트를 발견해보세요.<br>↓↓↓`;
                     img.src = 'img/interior.jpg';
                     img.alt = 'interior';
                     document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "journey":
                     resultMessage = "여행 인플루언서<br>(@1amny, @sohee.e)";
-                    text = `${'여행 인플루언서일 확률'}: ${probability*100} ${'%'}`;
+                    text = `축하드립니다!<br>당신은 <strong><u>${probability*100}%</u></strong>의 확률로<br><b>여행 인플루언서</b>입니다.<br>아래 버튼을 눌러 인플루언서로부터 인사이트를 발견해보세요.<br>↓↓↓`;
                     img.src = 'img/journey.jpg';
                     img.alt = 'journey';
                     document.body.insertBefore(img, resultMessageElement);
@@ -97,7 +97,8 @@
 
 
             const p = document.createElement('p');
-            p.textContent = text;
+            p.innerHTML = text;
+            p.className = 'result-text';
             outputElement.appendChild(p);
 
             // prediction.forEach(item => {
