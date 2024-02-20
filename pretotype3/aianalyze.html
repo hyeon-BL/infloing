@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Analyze Page</title>
+    <title>워너비 계정 찾기</title>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Pen+Script&family=Noto+Sans+KR:wght@100..900&family=Yeon+Sung&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="aiastyle.css">
 </head>
 <body>
     <div class="main">
-        <h1>Welcome to the Analyze Page</h1>
-        <p>This is a placeholder text. Replace it with your own content.</p>
+        <h1>나의 워너비 계정은...</h1>
     </div>
     <p class="result-message"></p>
     <!-- prediction 값을 출력할 요소를 추가합니다. -->
@@ -47,31 +46,31 @@
             console.log(prediction[0].className);
             switch (prediction[0].className) {
                 case "beauty":
-                    resultMessage = "뷰티 인플루언서";
+                    resultMessage = "뷰티 인플루언서<br>@jinpic.kr, @hayoonson";
                     img.src = 'img/cosmetics.jpg';
                     img.alt = 'Cosmetics';
                     document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "book":
-                    resultMessage = "자기계발 인플루언서";
+                    resultMessage = "자기계발 인플루언서<br>@g_rum_edo, @boooks__pick";
                     img.src = 'img/book.jpg';
                     img.alt = 'book';
                     document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "tech":
-                    resultMessage = "테크 인플루언서";
+                    resultMessage = "테크 인플루언서<br>@the_edit.co.kr, @geekble";
                     img.src = 'img/tech.jpg';
                     img.alt = 'tech';
                     document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "food":
-                    resultMessage = "음식 인플루언서";
+                    resultMessage = "음식 인플루언서<br>@ggam_food, @ming_foodie";
                     img.src = 'img/foods.jpg';
                     img.alt = 'food';
                     document.body.insertBefore(img, resultMessageElement);
                     break;
                 case "interior":
-                    resultMessage = "인테리어 인플루언서";
+                    resultMessage = "인테리어 인플루언서<br>@ggulhouse, @gamsung.home";
                     img.src = 'img/interior.jpg';
                     img.alt = 'interior';
                     document.body.insertBefore(img, resultMessageElement);
